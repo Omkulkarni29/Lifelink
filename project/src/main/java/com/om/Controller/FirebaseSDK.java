@@ -10,11 +10,12 @@ public class FirebaseSDK {
 
     public static void initialize() {
         try {
-            String fileName = "javafxfirebase-eb545-firebase-adminsdk-fbsvc-0961d7095b.json";
-            InputStream serviceAccount = FirebaseSDK.class.getResourceAsStream("/" + fileName);
+            ConfigLoader configLoader = new ConfigLoader();
+            String json_file = configLoader.getjson();
+            InputStream serviceAccount = FirebaseSDK.class.getResourceAsStream("/" + json_file);
 
             if (serviceAccount == null) {
-                throw new IOException(fileName + " not found on the classpath. Make sure it's in src/main/resources.");
+                throw new IOException(json_file + " not found on the classpath. Make sure it's in src/main/resources.");
             }
 
             FirebaseOptions options = FirebaseOptions.builder()

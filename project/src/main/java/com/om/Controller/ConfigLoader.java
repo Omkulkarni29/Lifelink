@@ -27,4 +27,7 @@ public class ConfigLoader {
     public String getBucketId() {
         return properties.getProperty("bucket_id");
     }
+    public String getjson() {
+        return properties.getProperty("json_file");
+    }
 }
